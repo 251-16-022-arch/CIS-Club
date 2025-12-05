@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIS Club — About ✨</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ---------- GLOBAL STYLES (SAME AS INDEX) ---------- */
+        :root {
+            --primary: #00D4AA;
+            --primary-dark: #00B894;
+            --secondary: #9C4DFF;
+            --accent: #FF6B9D;
+            --gold: #FFD700;
+            --platinum: #E5E4E2;
+            --text: #FFFFFF;
+            --text-secondary: #B0B7C3;
+            --dark-bg: #000000;
+            --card-bg: rgba(10, 10, 12, 0.9);
+            --border: rgba(0, 212, 170, 0.2);
+            --glow: rgba(0, 212, 170, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Aurora Background Animation (SAME AS INDEX) */
+        .aurora-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 0% 50%, 
+                    rgba(0, 212, 170, 0.08) 0%, 
+                    transparent 40%),
+                radial-gradient(circle at 100% 50%, 
+                    rgba(156, 77, 255, 0.08) 0%, 
+                    transparent 40%),
+                radial-gradient(circle at 50% 100%, 
+                    rgba(255, 107, 157, 0.08) 0%, 
+                    transparent 40%),
+                linear-gradient(180deg, #000000 0%, #050510 100%);
+            animation: aurora-move 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes aurora-move {
+            0% {
+                background-position: 0% 0%, 100% 50%, 50% 100%, 0% 0%;
+                filter: hue-rotate(0deg);
+            }
+            33% {
+                background-position: 100% 0%, 0% 50%, 50% 100%, 0% 0%;
+            }
+            66% {
+                background-position: 0% 100%, 100% 50%, 0% 0%, 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%, 0% 50%, 100% 0%, 0% 0%;
+                filter: hue-rotate(20deg);
+            }
+        }
+
+        /* Animated Grid Overlay (SAME AS INDEX) */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            opacity: 0.3;
+            animation: grid-move 40s linear infinite;
+        }
+
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Floating Particles (SAME AS INDEX) */
+        .particle-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particle-float 20s infinite linear;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Decorative floating dots (SAME AS INDEX) */
+        .decorative-dots {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: rgba(0, 212, 170, 0.6);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 212, 170, 0.8);
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .dot:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .dot:nth-child(2) { top: 25%; right: 10%; animation-delay: 1s; }
+        .dot:nth-child(3) { bottom: 35%; left: 15%; animation-delay: 2s; }
+        .dot:nth-child(4) { bottom: 20%; right: 8%; animation-delay: 3s; }
+        .dot:nth-child(5) { top: 45%; left: 12%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-25px) rotate(180deg); }
+        }
+
+        /* Sparkle animation (SAME AS INDEX) */
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 120px 0;
+        }
+
+        /* Luxury Typography (SAME AS INDEX) */
+        .luxury-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* ---------- NAVBAR (EXACT SAME AS INDEX) ---------- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(30px);
+            padding: 15px 30px;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 170, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 5px 30px rgba(0, 212, 170, 0.1);
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 30px;
+        }
+
+        .logo-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 8px 32px rgba(255, 107, 157, 0.4),
+                0 0 0 2px rgba(255, 182, 193, 0.5),
+                0 0 0 4px rgba(123, 104, 238, 0.3);
+            border: 2px solid #ffffff;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-circle::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite linear;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .logo-circle:hover {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 
+                0 12px 40px rgba(255, 107, 157, 0.6),
+                0 0 0 3px rgba(255, 182, 193, 0.7),
+                0 0 0 6px rgba(123, 104, 238, 0.4);
+        }
+
+        .logo-circle span {
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 32px;
+            letter-spacing: 1.5px;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            z-index: 2;
+        }
+
+        /* Navbar links (SAME AS INDEX) */
+        .nav-left a, .nav-right a {
+            color: var(--text-secondary);
+            font-weight: 600;
+            padding: 12px 18px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-left a::before, .nav-right a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-left a:hover, .nav-right a:hover {
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .nav-left a:hover::before, .nav-right a:hover::before {
+            width: 80%;
+        }
+
+        /* Active link (FOR ABOUT) */
+        .nav-left a[href*="about.html"] {
+            color: var(--primary);
+            background: rgba(0, 212, 170, 0.2);
+            box-shadow: 0 0 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .nav-left a[href*="about.html"]::before {
+            width: 80%;
+        }
+
+        /* Mobile Menu Toggle (SAME AS INDEX) */
+        .menu-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            position: relative;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--primary);
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .menu-toggle span:nth-child(1) { top: 8px; }
+        .menu-toggle span:nth-child(2) { top: 18px; }
+        .menu-toggle span:nth-child(3) { top: 28px; }
+
+        .menu-toggle.active span:nth-child(1) {
+            top: 18px;
+            transform: rotate(135deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            top: 18px;
+            transform: rotate(-135deg);
+        }
+
+        /* ---------- HERO SECTION ---------- */
+        .about-hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            max-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('gallery/hero.jpg') center/cover no-repeat;
+            border-radius: 0 0 30px 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            margin-top: 0;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(10, 10, 20, 0.6));
+            z-index: 1;
+        }
+
+        .about-hero h1 {
+            position: relative;
+            z-index: 2;
+            color: var(--text);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5.5rem;
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 
+                0 0 20px rgba(0, 212, 170, 0.8),
+                0 0 40px rgba(156, 77, 255, 0.6);
+            padding: 30px 50px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+        }
+
+        /* ---------- ABOUT SECTIONS ---------- */
+        .about-section {
+            background: var(--card-bg);
+            border-radius: 30px;
+            padding: 70px 60px;
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            box-shadow: 
+                0 40px 100px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(30px);
+            position: relative;
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary));
+        }
+
+        .about-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--text);
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 212, 170, 0.5);
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        .about-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(156, 77, 255, 0.5);
+        }
+
+        .about-section p {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 25px;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        /* Section divider */
+        .section-divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 170, 0.4), transparent);
+            margin: 60px 0;
+        }
+
+        /* ---------- MEMBERS SECTION ---------- */
+        .members-section {
+            margin: 100px auto;
+        }
+
+        .members-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--text);
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 212, 170, 0.5);
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .members-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary), var(--primary));
+            border-radius: 2px;
+            box-shadow: 0 0 15px rgba(255, 107, 157, 0.5);
+        }
+
+        .members-section h2::before {
+            content: '🌟';
+            margin-right: 20px;
+            animation: sparkle 2s infinite;
+        }
+
+        /* ---------- YOUR AMAZING ELECTRIC BORDER MEMBER CARDS (PRESERVED) ---------- */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .member-card-wrapper {
+            perspective: 1000px;
+            position: relative;
+        }
+
+        .member-card {
+            position: relative;
+            height: 420px;
+            border-radius: 24px;
+            overflow: hidden;
+            background: rgba(20, 15, 60, 0.95);
+            border: 3px solid transparent;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-clip: padding-box;
+            transform-style: preserve-3d;
+        }
+
+        /* Electric Border with neon effect - KEPT YOUR AMAZING EFFECT! */
+        .member-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 2px;
+            background: conic-gradient(
+                from var(--angle, 0deg),
+                #FFA500,
+                #00FFFF,
+                #FF00FF,
+                #FFA500
+            );
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            z-index: 1;
+            pointer-events: none;
+            animation: electricBorder 3s linear infinite;
+            filter: drop-shadow(0 0 8px #00FFFF) drop-shadow(0 0 12px #FF00FF);
+        }
+
+        @property --angle {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        @keyframes electricBorder {
+            0% {
+                --angle: 0deg;
+                filter: drop-shadow(0 0 8px #00FFFF) drop-shadow(0 0 12px #FF00FF);
+            }
+            25% {
+                filter: drop-shadow(0 0 10px #FF00FF) drop-shadow(0 0 15px #FFA500);
+            }
+            50% {
+                filter: drop-shadow(0 0 12px #FFA500) drop-shadow(0 0 18px #00FFFF);
+            }
+            75% {
+                filter: drop-shadow(0 0 10px #00FFFF) drop-shadow(0 0 15px #FF00FF);
+            }
+            100% {
+                --angle: 360deg;
+                filter: drop-shadow(0 0 8px #FF00FF) drop-shadow(0 0 12px #FFA500);
+            }
+        }
+
+        /* Neon glow effect under the card - KEPT YOUR EFFECT! */
+        .member-card::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 10%;
+            width: 80%;
+            height: 30px;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                #00FFFF 20%,
+                #FF00FF 50%,
+                #00FFFF 80%,
+                transparent 100%
+            );
+            border-radius: 50%;
+            filter: blur(15px);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .member-card:hover::after {
+            opacity: 1;
+            transform: scale(1);
+            animation: neonPulse 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonPulse {
+            0% {
+                filter: blur(15px) brightness(1);
+                box-shadow: 0 0 20px #00FFFF, 0 0 40px #FF00FF;
+            }
+            100% {
+                filter: blur(20px) brightness(1.5);
+                box-shadow: 0 0 30px #00FFFF, 0 0 60px #FF00FF, 0 0 80px #FFA500;
+            }
+        }
+
+        .member-card img {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 22px 22px 0 0;
+            transition: transform 0.5s ease-in-out;
+            filter: brightness(0.9);
+        }
+
+        .member-card:hover img {
+            transform: scale(1.08);
+            filter: brightness(1.1);
+        }
+
+        .member-card-content {
+            height: 30%;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+            background: rgba(15, 12, 41, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 0 0 22px 22px;
+        }
+
+        .member-card-content h4 {
+            font-size: 22px;
+            font-weight: 800;
+            color: #ffd1dc;
+            margin-bottom: 8px;
+            text-shadow: 0 0 12px rgba(255, 199, 115, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover .member-card-content h4 {
+            color: #ffffff;
+            text-shadow: 0 0 15px #00FFFF, 0 0 25px #FF00FF;
+            animation: textGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        .member-card-content p {
+            font-size: 16px;
+            color: #b5e8ff;
+            text-shadow: 0 0 6px rgba(0, 208, 255, 0.5);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .member-card:hover .member-card-content p {
+            color: #ffffff;
+            text-shadow: 0 0 10px #FF00FF, 0 0 15px #00FFFF;
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 15px #00FFFF, 0 0 25px #FF00FF;
+            }
+            100% {
+                text-shadow: 0 0 20px #FF00FF, 0 0 30px #FFA500, 0 0 40px #00FFFF;
+            }
+        }
+
+        .member-card-wrapper:hover .member-card {
+            transform: rotate3d(0.3, 1, 0, 8deg) translateY(-15px);
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.5),
+                0 0 40px rgba(0, 255, 255, 0.5),
+                0 0 60px rgba(255, 0, 255, 0.4);
+        }
+
+        /* Additional glow effect for the entire card on hover - KEPT YOUR EFFECT! */
+        .member-card-wrapper:hover .member-card::before {
+            animation-duration: 1.5s;
+            filter: drop-shadow(0 0 15px #00FFFF) 
+                   drop-shadow(0 0 25px #FF00FF)
+                   drop-shadow(0 0 35px #FFA500);
+        }
+
+        /* ---------- FOOTER (EXACT SAME AS INDEX) ---------- */
+        footer {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.98), rgba(10, 10, 12, 0.95));
+            padding: 120px 0 70px;
+            border-top: 1px solid rgba(0, 212, 170, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--platinum));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.15rem;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: var(--text);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-size: 1.15rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 15px;
+        }
+
+        .footer-links a::before {
+            content: '→';
+            color: var(--primary);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+        }
+
+        .footer-contact p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-weight: 300;
+            font-size: 1.15rem;
+        }
+
+        .footer-contact i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 30px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 60px;
+            border-top: 1px solid rgba(0, 212, 170, 0.1);
+            color: var(--text-secondary);
+            font-weight: 300;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* ---------- RESPONSIVE DESIGN ---------- */
+        @media (max-width: 1400px) {
+            .container {
+                max-width: 1200px;
+                padding: 0 50px;
+            }
+            
+            .about-hero h1 {
+                font-size: 4.5rem;
+            }
+            
+            .members-section h2 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .about-hero h1 {
+                font-size: 4rem;
+            }
+            
+            .members-section h2 {
+                font-size: 3rem;
+            }
+            
+            .about-section {
+                padding: 60px 50px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            /* Navigation */
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                padding: 12px 20px;
+            }
+            
+            .nav-left, .nav-right {
+                display: none;
+            }
+            
+            .nav-left.active, .nav-right.active {
+                display: flex;
+                flex: 1 1 100%;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 15px;
+            }
+            
+            .logo-circle {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .logo-circle span {
+                font-size: 24px;
+            }
+            
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+            
+            /* Hero */
+            .about-hero {
+                height: 60vh;
+            }
+            
+            .about-hero h1 {
+                font-size: 3rem;
+                padding: 20px 30px;
+            }
+            
+            /* About Sections */
+            .about-section h2 {
+                font-size: 2.8rem;
+            }
+            
+            .about-section p {
+                font-size: 1.15rem;
+            }
+            
+            /* Members Section */
+            .members-section h2 {
+                font-size: 2.5rem;
+            }
+            
+            .members-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+            }
+            
+            .member-card {
+                height: 380px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                height: 50vh;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.5rem;
+                padding: 15px 25px;
+            }
+            
+            .about-section {
+                padding: 40px 30px;
+                border-radius: 25px;
+            }
+            
+            .about-section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-section p {
+                font-size: 1.1rem;
+            }
+            
+            .members-section {
+                margin: 60px auto;
+            }
+            
+            .members-section h2 {
+                font-size: 2rem;
+            }
+            
+            .members-section h2::after {
+                width: 180px;
+            }
+            
+            .members-grid {
+                gap: 25px;
+            }
+            
+            .member-card {
+                height: 360px;
+            }
+            
+            .member-card-content h4 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-hero {
+                height: 40vh;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.2rem;
+                padding: 10px 20px;
+            }
+            
+            .about-section {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+            
+            .about-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .about-section p {
+                font-size: 1rem;
+            }
+            
+            .members-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .members-section h2::after {
+                width: 150px;
+            }
+            
+            .members-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .navbar {
+                padding: 10px 15px;
+            }
+            
+            .logo-circle {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .logo-circle span {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Aurora Background (SAME AS INDEX) -->
+    <div class="aurora-bg"></div>
+    <div class="grid-overlay"></div>
+    
+    <!-- Particle Container (SAME AS INDEX) -->
+    <div class="particle-container" id="particleContainer"></div>
+    
+    <!-- Decorative dots (SAME AS INDEX) -->
+    <div class="decorative-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+    
+    <!-- ---------- NAVBAR (SAME AS INDEX) ---------- -->
+    <header>
+        <nav class="navbar">
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="nav-left" id="navLeft">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="join.html">Join</a>
+            </div>
+            
+            <div class="logo">
+                <div class="logo-circle">
+                    <span>CIS</span>
+                </div>
+            </div>
+            
+            <div class="nav-right" id="navRight">
+                <a href="events.html">Event</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="resourse.html">Resources</a>
+                <a href="contact.html">Contact</a>
+                
+            </div>
+        </nav>
+    </header>
+    
+    <!-- ---------- HERO SECTION ---------- -->
+    <div class="about-hero">
+        <h1>About Us ✨</h1>
+    </div>
+    
+    <!-- ---------- INTRODUCTION SECTION ---------- -->
+    <div class="container">
+        <div class="about-section">
+            <h2>Introduction</h2>
+            <p>The CIS Club is a vibrant hub for students passionate about computing and technology. We provide hands-on workshops, interactive sessions, and opportunities for skill development. Our goal is to inspire creativity, collaboration, and problem-solving through real-world projects and competitions. Members gain exposure to AI, programming, and emerging technologies while building leadership and teamwork skills.</p>
+            <p>At CIS Club, we believe in the power of innovation and community. Our members come from diverse backgrounds but share a common passion for technology and its potential to transform lives. We create an environment where curiosity thrives, ideas flourish, and students can transform their passion into meaningful projects.</p>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <!-- ---------- HISTORY SECTION ---------- -->
+        <div class="about-section">
+            <h2>History</h2>
+            <p>Founded in 2023, the CIS Club has grown into a dynamic community of tech enthusiasts and innovators. Over the years, we have hosted annual project showcases, hackathons, and mentoring programs that have shaped the careers of countless students. Our journey began with a small group of passionate students and has expanded to become one of the most influential tech communities on campus.</p>
+            <p>Through consistent innovation, collaboration, and dedication, CIS Club has become a platform where ideas turn into tangible projects and lifelong connections are formed. Each year brings new achievements, partnerships, and opportunities that continue to push the boundaries of what our community can accomplish.</p>
+        </div>
+    </div>
+    
+    <!-- ---------- MEMBERS SECTION ---------- -->
+    <div class="container">
+        <div class="members-section">
+            <h2>Our Amazing Team 🌟</h2>
+            <div class="members-grid">
+                <!-- All 30 Member Cards - PRESERVED YOUR AMAZING ELECTRIC BORDER CARDS! -->
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/sarwar.jpg" alt="sarwar">
+                        <div class="member-card-content">
+                            <h4>Md. Sarwar Hossain Mollah</h4>
+                            <p>Advisor</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/mehedi.jpg" alt="Masudur Rahman">
+                        <div class="member-card-content">
+                            <h4>Md. Mehedi Hassan</h4>
+                            <p>Advisor</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/Israfil.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Mr. Israfil</h4>
+                            <p>Convener</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/tamanna.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Tamanna Akter</h4>
+                            <p>Co-Convener</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/mabia.jpg" alt="Masudur Rahman">
+                        <div class="member-card-content">
+                            <h4>Mabia Akonda Jemi</h4>
+                            <p>President</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/pisah.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Ariful Haque Piash</h4>
+                            <p>Vice-President</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/sinthi.jpg" alt="Masudur Rahman">
+                        <div class="member-card-content">
+                            <h4>Shinthiah Islam Ritu</h4>
+                            <p>Vice-President</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/delower.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Delover Hussain</h4>
+                            <p>Vice-President</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/jannatul_bony.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Jannatul Ferdous Bony</h4>
+                            <p>Secretary of Public Relations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/akash.jpg" alt="Masudur Rahman">
+                        <div class="member-card-content">
+                            <h4>Jobied Chowdhury</h4>
+                            <p>Organizing Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/atik.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Arafin Atik</h4>
+                            <p>General Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/golam_rabbi.jpg" alt="Masudur Rahman">
+                        <div class="member-card-content">
+                            <h4>Golam Rabbi</h4>
+                            <p>Deputy Design Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/disha.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Sanjana Noor Disha</h4>
+                            <p>Treasurer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/fuad_fahim.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Md. Fuad Hasan Fahim</h4>
+                            <p>Deputy Sports Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/jakaria_fahim.jpg" alt="Masudur Rahman">
+                        <div class="member-card-content">
+                            <h4>Md. Jakarta Hossin Fahim</h4>
+                            <p>Press Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/nafisa_nusrat.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Nafisa Tabassum Nusrat</h4>
+                            <p>Deputy Design Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/masud.jpg" alt="Masudur Rahman">
+                        <div class="member-card-content">
+                            <h4>Masudur Rahman</h4>
+                            <p>Editor</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/nahian.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Samiul Hauque Ann Nahian</h4>
+                            <p>Joint Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/nusrat.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Nusrat Jahan Jitu</h4>
+                            <p>Deputy Organizing Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/pranto.jpg" alt="Masudur Rahman">
+                        <div class="member-card-content">
+                            <h4>Md. Abdul Ahad Pranto</h4>
+                            <p>Deputy Cultural Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/pallab.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Indrojit Sarkar Pallab</h4>
+                            <p>Deputy Organizing Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/rayhan.jpg" alt="Masudur Rahman">
+                        <div class="member-card-content">
+                            <h4>Md. Rayhan Parvaz</h4>
+                            <p>Deputy Media Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/ruhit.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Md. MushfiquI Islam Ruhit</h4>
+                            <p>Digital Content Manager</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/sajjad.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Sajjad Hossain</h4>
+                            <p>Sports Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/sami.jpg" alt="Masudur Rahman">
+                        <div class="member-card-content">
+                            <h4>Md. Samiul Islam</h4>
+                            <p>Joint Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/samin_ur_rahman.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>T. M. Samin Ur Rahman</h4>
+                            <p>Design Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/shehabul_alam.jpg" alt="Masudur Rahman">
+                        <div class="member-card-content">
+                            <h4>Md. Shehabaul Alam</h4>
+                            <p>Deputy Secretary of Public Relations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/shimu.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Shumaiq Jaman Shimu</h4>
+                            <p>Joint Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/tahsin.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>S.M. Tahsin Ul Karim</h4>
+                            <p>Deputy Secretary of Public Relations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/sithil.jpg" alt="Masudur Rahman">
+                        <div class="member-card-content">
+                            <h4>MD. Mahid Alam Marin</h4>
+                            <p>Deputy Organizing Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/tasnim.jpg" alt="Md. MushfiquI Islam Ruhit">
+                        <div class="member-card-content">
+                            <h4>Tabassum Akter Tasnim</h4>
+                            <p>Cultural Secretary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card-wrapper">
+                    <div class="member-card">
+                        <img src="gallery/Pushpita.jpg" alt="Masudur Rahman">
+                        <div class="member-card-content">
+                            <h4>Pushpita Halder Isha</h4>
+                            <p>Deputy Secretary of Public Relations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ---------- FOOTER (EXACT SAME AS INDEX) ---------- -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <a href="#">
+                            <img src="gallery/logo.png" alt="">
+                        </a>
+                    </div>
+                    <p class="footer-description">
+                        An elite collective of technological visionaries dedicated to pioneering innovation, 
+                        fostering excellence, and architecting the future through revolutionary computation 
+                        and groundbreaking research.
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="join.html">Membership</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="resourse.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Connect</h4>
+                    <p><i class="fas fa-envelope"></i>cisclub@diu.edu.bd</p>
+                    <p><i class="fas fa-phone"></i> 01639-507665</p>
+                    <p><i class="fas fa-map-marker-alt"></i>Daffodil Smart City (DSC),Birulia, Savar, Dhaka-1216</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CIS Club. All intellectual property reserved. <i class="fas fa-crown" style="color: var(--gold);"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Create particles (SAME AS INDEX)
+            const particleContainer = document.getElementById('particleContainer');
+            
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 6 + 2;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 20;
+                const duration = Math.random() * 30 + 15;
+                const colors = ['#00D4AA', '#9C4DFF', '#FF6B9D', '#FFD700'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.bottom = `-${size}px`;
+                particle.style.background = color;
+                particle.style.boxShadow = `0 0 20px ${color}, 0 0 40px ${color}`;
+                particle.style.opacity = Math.random() * 0.6 + 0.1;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particleContainer.appendChild(particle);
+                
+                setTimeout(() => {
+                    if (particle.parentNode === particleContainer) {
+                        particleContainer.removeChild(particle);
+                    }
+                }, duration * 1000);
+            }
+            
+            for (let i = 0; i < 40; i++) {
+                createParticle();
+            }
+            
+            setInterval(createParticle, 300);
+            
+            // -------- MOBILE MENU TOGGLE (SAME AS INDEX) --------
+            const menuToggle = document.getElementById('menuToggle');
+            const navLeft = document.getElementById('navLeft');
+            const navRight = document.getElementById('navRight');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function () {
+                    menuToggle.classList.toggle('active');
+                    navLeft.classList.toggle('active');
+                    navRight.classList.toggle('active');
+                    document.body.style.overflow = navLeft.classList.contains('active') ? 'hidden' : 'auto';
+                });
+                
+                document.querySelectorAll('.nav-left a, .nav-right a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuToggle.classList.remove('active');
+                        navLeft.classList.remove('active');
+                        navRight.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    });
+                });
+            }
+            
+            // -------- NAVBAR SCROLL EFFECT (SAME AS INDEX) --------
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // -------- PAGE TITLE ANIMATION --------
+            const pageTitle = document.querySelector('title');
+            const originalTitle = pageTitle.textContent;
+            
+            window.addEventListener('focus', () => {
+                pageTitle.textContent = originalTitle;
+            });
+            
+            window.addEventListener('blur', () => {
+                pageTitle.textContent = originalTitle;
+            });
+            
+            // -------- MEMBER CARDS ANIMATION --------
+            const memberCards = document.querySelectorAll('.member-card-wrapper');
+            memberCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 + (index * 50));
+            });
+            
+            // -------- LOGIN BUTTON (SAME AS INDEX) --------
+            const loginBtn = document.getElementById('loginBtn');
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    alert('Login functionality would open here. For demo, this is a placeholder.');
+                });
+            }
+            
+            // -------- ABOUT SECTIONS ANIMATION --------
+            const aboutSections = document.querySelectorAll('.about-section');
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            aboutSections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(50px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
